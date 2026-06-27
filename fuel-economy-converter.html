@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fuel Economy Converter — MPG, L/100km, km/L | UnitKit</title>
+  <meta name="description" content="Free online fuel economy converter. Convert between miles per gallon (MPG), liters per 100 km (L/100km), and km per liter. For US, UK, and metric measurements.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/fuel-economy-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Fuel Economy Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Convert between MPG (US), MPG (UK), liters per 100 km, and km per liter.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>⛽ Fuel Economy Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="fe-value">Value</label>
+          <input type="number" id="fe-value" placeholder="Enter value" value="30" min="0" step="0.1">
+        </div>
+        <div class="field">
+          <label for="fe-from">From</label>
+          <select id="fe-from">
+            <option value="mpg_us">MPG (US)</option>
+            <option value="mpg_uk">MPG (UK/Imperial)</option>
+            <option value="l100km">L/100km</option>
+            <option value="kml">km/L</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fe-to">To</label>
+          <select id="fe-to">
+            <option value="mpg_us">MPG (US)</option>
+            <option value="mpg_uk">MPG (UK/Imperial)</option>
+            <option value="l100km" selected>L/100km</option>
+            <option value="kml">km/L</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="convertFuel()">Convert</button>
+      <div class="result-box" id="fe-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What is the difference between US MPG and UK MPG?</summary>
+        <div class="faq-body">US MPG uses the US gallon (3.785 L), while UK/Imperial MPG uses the Imperial gallon (4.546 L). A car with 30 US MPG = 36.04 UK MPG.</div>
+      </details>
+      <details>
+        <summary>How do I convert MPG to L/100km?</summary>
+        <div class="faq-body">Formula: L/100km = 235.214 ÷ MPG (US). So 30 MPG = 7.84 L/100km.</div>
+      </details>
+      <details>
+        <summary>What is good fuel economy?</summary>
+        <div class="faq-body">For a typical car: 30+ MPG (US) / under 8 L/100km is considered good. Hybrids and EVs can achieve 50+ MPGe.</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    // Fuel economy conversions are non-linear (inverse relationships)
+    // Base unit: MPG US
+    function toMpgUs(v, from) {
+      if (from === 'mpg_us') return v;
+      if (from === 'mpg_uk') return v * 0.832674; // 1 UK gal = 1.20095 US gal
+      if (from === 'l100km') return 235.214476 / v;
+      if (from === 'kml') return v * 2.35214476;
+      return v;
+    }
+    function fromMpgUs(mpg, to) {
+      if (to === 'mpg_us') return mpg;
+      if (to === 'mpg_uk') return mpg / 0.832674;
+      if (to === 'l100km') return 235.214476 / mpg;
+      if (to === 'kml') return mpg / 2.35214476;
+      return mpg;
+    }
+    const FE_LABELS = { mpg_us: 'MPG (US)', mpg_uk: 'MPG (UK)', l100km: 'L/100km', kml: 'km/L' };
+    function convertFuel() {
+      const v = parseFloat(document.getElementById('fe-value').value);
+      const from = document.getElementById('fe-from').value;
+      const to = document.getElementById('fe-to').value;
+      if (isNaN(v) || v <= 0) { document.getElementById('fe-result').textContent = 'Please enter a positive number.'; return; }
+      const mpg = toMpgUs(v, from);
+      const result = fromMpgUs(mpg, to);
+      document.getElementById('fe-result').textContent =
+        v + ' ' + FE_LABELS[from] + ' = ' + (+result.toFixed(4)) + ' ' + FE_LABELS[to];
+    }
+    document.getElementById('fe-value').addEventListener('input', convertFuel);
+    document.getElementById('fe-from').addEventListener('change', convertFuel);
+    document.getElementById('fe-to').addEventListener('change', convertFuel);
+    convertFuel();
+  </script>
+</body>
+</html>
