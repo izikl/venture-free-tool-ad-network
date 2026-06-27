@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Speed Converter — km/h, mph, m/s, Knots | UnitKit</title>
+  <meta name="description" content="Free online speed converter. Convert between kilometers per hour, miles per hour, meters per second, knots, and more.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/speed-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Speed Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Convert between km/h, mph, m/s, knots, ft/s, and other speed units.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>🏎️ Speed Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="cv-value">Value</label>
+          <input type="number" id="cv-value" placeholder="Enter value" value="1">
+        </div>
+        <div class="field">
+          <label for="cv-from">From</label>
+          <select id="cv-from">
+            <option value="kmh">km/h</option>
+            <option value="mph">mph</option>
+            <option value="ms">m/s</option>
+            <option value="kn">Knot (kn)</option>
+            <option value="fts">ft/s</option>
+            <option value="mach">Mach (Ma)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cv-to">To</label>
+          <select id="cv-to">
+            <option value="kmh">km/h</option>
+            <option value="mph" selected>mph</option>
+            <option value="ms">m/s</option>
+            <option value="kn">Knot (kn)</option>
+            <option value="fts">ft/s</option>
+            <option value="mach">Mach (Ma)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="doConvert()">Convert</button>
+      <div class="result-box" id="cv-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How many km/h is 1 mph?</summary>
+        <div class="faq-body">1 mph = 1.60934 km/h.</div>
+      </details>
+      <details>
+        <summary>How fast is 1 knot in km/h?</summary>
+        <div class="faq-body">1 knot = 1.852 km/h. Knots are used in maritime and aviation.</div>
+      </details>
+      <details>
+        <summary>What is Mach 1?</summary>
+        <div class="faq-body">Mach 1 is the speed of sound, approximately 1234.8 km/h (767 mph) at sea level.</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    const TO_BASE = { kmh: 1, mph: 1.609344, ms: 3.6, kn: 1.852, fts: 1.09728, mach: 1234.8 };
+    const LABELS = { kmh: 'km/h', mph: 'mph', ms: 'm/s', kn: 'knot', fts: 'ft/s', mach: 'mach' };
+    function doConvert() {
+      const v = parseFloat(document.getElementById('cv-value').value);
+      const from = document.getElementById('cv-from').value;
+      const to = document.getElementById('cv-to').value;
+      if (isNaN(v)) { document.getElementById('cv-result').textContent = 'Please enter a valid number.'; return; }
+      const base = v * TO_BASE[from];
+      const result = base / TO_BASE[to];
+      document.getElementById('cv-result').textContent =
+        v + ' ' + LABELS[from] + ' = ' + (+result.toPrecision(8)) + ' ' + LABELS[to];
+    }
+    document.getElementById('cv-value').addEventListener('input', doConvert);
+    document.getElementById('cv-from').addEventListener('change', doConvert);
+    document.getElementById('cv-to').addEventListener('change', doConvert);
+    doConvert();
+  </script>
+</body>
+</html>
