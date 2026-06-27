@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Time Converter — Seconds, Minutes, Hours, Days, Years | UnitKit</title>
+  <meta name="description" content="Free online time unit converter. Convert between seconds, minutes, hours, days, weeks, months, and years instantly.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/time-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Time Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Convert between seconds, minutes, hours, days, weeks, months, and years.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>⏱️ Time Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="cv-value">Value</label>
+          <input type="number" id="cv-value" placeholder="Enter value" value="1">
+        </div>
+        <div class="field">
+          <label for="cv-from">From</label>
+          <select id="cv-from">
+            <option value="ms">Millisecond (ms)</option>
+            <option value="s">Second (s)</option>
+            <option value="min">Minute (min)</option>
+            <option value="hr">Hour (hr)</option>
+            <option value="day">Day</option>
+            <option value="wk">Week</option>
+            <option value="mo">Month (avg)</option>
+            <option value="yr">Year</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cv-to">To</label>
+          <select id="cv-to">
+            <option value="ms">Millisecond (ms)</option>
+            <option value="s" selected>Second (s)</option>
+            <option value="min">Minute (min)</option>
+            <option value="hr">Hour (hr)</option>
+            <option value="day">Day</option>
+            <option value="wk">Week</option>
+            <option value="mo">Month (avg)</option>
+            <option value="yr">Year</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="doConvert()">Convert</button>
+      <div class="result-box" id="cv-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How many seconds in a day?</summary>
+        <div class="faq-body">1 day = 24 hours × 60 minutes × 60 seconds = 86,400 seconds.</div>
+      </details>
+      <details>
+        <summary>How many hours in a year?</summary>
+        <div class="faq-body">1 year = 8,765.81 hours (365.2425 days × 24 hours).</div>
+      </details>
+      <details>
+        <summary>How many weeks in a year?</summary>
+        <div class="faq-body">1 year = 52.1775 weeks (approximately 52 weeks and 1 day).</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    const TO_BASE = { ms: 0.001, s: 1, min: 60, hr: 3600, day: 86400, wk: 604800, mo: 2629746, yr: 31556952 };
+    const LABELS = { ms: 'millisecond', s: 'second', min: 'minute', hr: 'hour', day: 'day', wk: 'week', mo: 'month', yr: 'year' };
+    function doConvert() {
+      const v = parseFloat(document.getElementById('cv-value').value);
+      const from = document.getElementById('cv-from').value;
+      const to = document.getElementById('cv-to').value;
+      if (isNaN(v)) { document.getElementById('cv-result').textContent = 'Please enter a valid number.'; return; }
+      const base = v * TO_BASE[from];
+      const result = base / TO_BASE[to];
+      document.getElementById('cv-result').textContent =
+        v + ' ' + LABELS[from] + ' = ' + (+result.toPrecision(8)) + ' ' + LABELS[to];
+    }
+    document.getElementById('cv-value').addEventListener('input', doConvert);
+    document.getElementById('cv-from').addEventListener('change', doConvert);
+    document.getElementById('cv-to').addEventListener('change', doConvert);
+    doConvert();
+  </script>
+</body>
+</html>
