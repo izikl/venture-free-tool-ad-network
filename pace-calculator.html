@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pace Calculator - Running Pace, Speed & Finish Time | UnitKit</title>
+  <meta name="description" content="Free running pace calculator. Calculate your pace per mile or km, finish time for 5K, 10K, half marathon, or marathon, and equivalent speed in mph or km/h.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/pace-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Pace Calculator","description":"Calculate running pace, finish time for 5K to marathon, and equivalent speed.","url":"https://izikl.github.io/venture-free-tool-ad-network/pace-calculator.html","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .result-main{font-size:2.4rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--color-border)}
+    .result-row:last-child{border-bottom:none}
+    .result-label{color:var(--color-muted);font-size:.9rem}
+    .tab-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .tab-btn{padding:8px 14px;border:2px solid var(--color-primary);border-radius:6px;background:#fff;cursor:pointer;font-weight:600;color:var(--color-primary)}
+    .tab-btn.active{background:var(--color-primary);color:#fff}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+    .seo-section h2,.seo-section h3{margin-top:0}
+    .faq-item+.faq-item{margin-top:16px}
+    table{width:100%;border-collapse:collapse;font-size:.9rem}
+    th{background:var(--color-primary);color:#fff;padding:8px;text-align:left}
+    td{padding:8px;border-bottom:1px solid var(--color-border)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Pace Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Calculate running pace, finish time for any race distance, or convert between pace and speed.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="tab-btns">
+        <button class="tab-btn active" data-tab="finish">Finish Time</button>
+        <button class="tab-btn" data-tab="pace">Find Pace</button>
+        <button class="tab-btn" data-tab="dist">Find Distance</button>
+      </div>
+      <div id="tab-finish" class="tab-panel active">
+        <div class="converter-row">
+          <div class="field">
+            <label for="ft-pace-min">Pace (min)</label>
+            <input id="ft-pace-min" type="number" min="1" max="59" placeholder="10" value="10">
+          </div>
+          <div class="field">
+            <label for="ft-pace-sec">Pace (sec)</label>
+            <input id="ft-pace-sec" type="number" min="0" max="59" placeholder="0" value="0">
+          </div>
+          <div class="field">
+            <label for="ft-unit">Per</label>
+            <select id="ft-unit" style="padding:10px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;width:100%">
+              <option value="mile">Mile</option>
+              <option value="km">Kilometer</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:14px">
+          <label for="ft-dist">Distance</label>
+          <select id="ft-dist" style="padding:10px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;width:100%">
+            <option value="5k">5K (3.107 miles)</option>
+            <option value="10k">10K (6.214 miles)</option>
+            <option value="half">Half Marathon (13.11 miles)</option>
+            <option value="full" selected>Marathon (26.22 miles)</option>
+            <option value="1mi">1 Mile</option>
+          </select>
+        </div>
+        <button class="btn" id="ft-calc">Calculate Finish Time</button>
+        <div class="result-box" id="ft-result" style="margin-top:16px">Enter your pace above to calculate your finish time.</div>
+      </div>
+      <div id="tab-pace" class="tab-panel">
+        <div class="converter-row">
+          <div class="field">
+            <label for="fp-time-h">Time (hours)</label>
+            <input id="fp-time-h" type="number" min="0" placeholder="4">
+          </div>
+          <div class="field">
+            <label for="fp-time-m">Minutes</label>
+            <input id="fp-time-m" type="number" min="0" max="59" placeholder="0">
+          </div>
+          <div class="field">
+            <label for="fp-time-s">Seconds</label>
+            <input id="fp-time-s" type="number" min="0" max="59" placeholder="0">
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:14px">
+          <label for="fp-dist">Distance</label>
+          <select id="fp-dist" style="padding:10px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;width:100%">
+            <option value="5k">5K</option>
+            <option value="10k">10K</option>
+            <option value="half">Half Marathon</option>
+            <option value="full" selected>Marathon</option>
+            <option value="1mi">1 Mile</option>
+          </select>
+        </div>
+        <button class="btn" id="fp-calc">Calculate Pace</button>
+        <div class="result-box" id="fp-result" style="margin-top:16px">Enter your time above to calculate your pace.</div>
+      </div>
+      <div id="tab-dist" class="tab-panel">
+        <div class="converter-row">
+          <div class="field">
+            <label for="fd-pace-min">Pace (min)</label>
+            <input id="fd-pace-min" type="number" min="1" max="59" placeholder="9">
+          </div>
+          <div class="field">
+            <label for="fd-pace-sec">Pace (sec)</label>
+            <input id="fd-pace-sec" type="number" min="0" max="59" placeholder="30">
+          </div>
+          <div class="field">
+            <label for="fd-time-h">Duration (h)</label>
+            <input id="fd-time-h" type="number" min="0" placeholder="1">
+          </div>
+          <div class="field">
+            <label for="fd-time-m">Duration (min)</label>
+            <input id="fd-time-m" type="number" min="0" max="59" placeholder="0">
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:14px">
+          <label for="fd-unit">Pace Per</label>
+          <select id="fd-unit" style="padding:10px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;width:100%">
+            <option value="mile">Mile</option>
+            <option value="km">Kilometer</option>
+          </select>
+        </div>
+        <button class="btn" id="fd-calc">Calculate Distance</button>
+        <div class="result-box" id="fd-result" style="margin-top:16px">Enter your pace and duration to find the distance.</div>
+      </div>
+    </section>
+    <section class="converter-card" style="margin-top:16px">
+      <h2 style="font-size:1rem;margin-bottom:12px">Common Race Finish Time Reference</h2>
+      <table>
+        <thead><tr><th>Pace/mile</th><th>5K</th><th>10K</th><th>Half</th><th>Marathon</th></tr></thead>
+        <tbody>
+          <tr><td>7:00</td><td>21:45</td><td>43:30</td><td>1:31:55</td><td>3:03:50</td></tr>
+          <tr><td>8:00</td><td>24:51</td><td>49:42</td><td>1:44:54</td><td>3:29:48</td></tr>
+          <tr><td>9:00</td><td>27:58</td><td>55:55</td><td>1:57:53</td><td>3:55:46</td></tr>
+          <tr><td>10:00</td><td>31:04</td><td>1:02:08</td><td>2:10:51</td><td>4:21:43</td></tr>
+          <tr><td>11:00</td><td>34:11</td><td>1:08:22</td><td>2:23:50</td><td>4:47:40</td></tr>
+          <tr><td>12:00</td><td>37:17</td><td>1:14:35</td><td>2:36:49</td><td>5:13:38</td></tr>
+        </tbody>
+      </table>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card seo-section" style="margin-top:24px">
+      <h2>How to calculate running pace</h2>
+      <p>Running pace is the time it takes you to cover a set distance, usually expressed in minutes per mile or minutes per kilometer. To calculate your pace, divide your total run time (in minutes) by the distance covered. For example, if you ran 3 miles in 30 minutes, your pace is 10 minutes per mile. Runners in countries using the metric system typically express pace as minutes per kilometer instead.</p>
+      <p>To find your finish time for a race, multiply your pace by the race distance. A 10:00 per mile pace over a 26.22-mile marathon gives a finish time of 4 hours 21 minutes and 43 seconds. This calculator handles the conversions and time arithmetic automatically, including the correct distances for standard race formats.</p>
+      <h2>Converting between pace and speed</h2>
+      <p>Pace and speed express the same thing in different ways. Pace is time per distance; speed is distance per time. To convert a 10:00 per mile pace to miles per hour, divide 60 by 10, giving 6 mph. To convert 5 mph to a pace, divide 60 by 5, giving 12:00 per mile. For kilometers, divide 60 by your pace in minutes per km to get km/h, or divide 60 by your speed in km/h to get your pace in minutes per km.</p>
+      <p>Treadmill speeds are typically expressed in mph or km/h, so converting between pace and speed is useful when setting treadmill intensity. A common outdoor pace of 10:00 per mile corresponds to a treadmill setting of 6.0 mph.</p>
+      <h2>Pacing strategies for races</h2>
+      <p>Negative splitting means running the second half of a race faster than the first half. It is generally considered the most efficient pacing strategy for long distances because it prevents burning out early. Even splitting means maintaining a consistent pace throughout. Positive splitting means starting faster and slowing down, which often results in significantly slower total times due to glycogen depletion and mental fatigue in the later miles.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>What is a good marathon pace?</h3>
+        <p>A sub-4-hour marathon (9:09 per mile) is a common benchmark for recreational runners. Sub-3:30 (8:01 per mile) is solid for regular runners. Elite amateur runners target sub-3:00 (6:52 per mile). World-class runners finish under 2:10.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I calculate my 5K pace?</h3>
+        <p>Enter your 5K finish time in the Find Pace tab. For example, a 30-minute 5K gives a pace of 9:39 per mile or 6:00 per kilometer.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is a mile in minutes on a treadmill?</h3>
+        <p>A treadmill set to 6.0 mph takes 10 minutes to cover one mile. At 5.0 mph, a mile takes 12 minutes. At 7.5 mph, a mile takes 8 minutes.</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:32px 20px;color:var(--color-muted);font-size:.85rem;border-top:1px solid var(--color-border);margin-top:40px">
+    <p>&copy; 2026 UnitKit. <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/about.html">About</a> &middot; <a href="/more-tools.html">All Tools</a></p>
+  </footer>
+  <script>
+  (function() {
+    const DISTS = {
+      '5k': {miles: 3.10686, label:'5K'},
+      '10k': {miles: 6.21371, label:'10K'},
+      'half': {miles: 13.1094, label:'Half Marathon'},
+      'full': {miles: 26.2188, label:'Marathon'},
+      '1mi': {miles: 1, label:'1 Mile'},
+    };
+    function fmtTime(totalSec) {
+      const h = Math.floor(totalSec/3600);
+      const m = Math.floor((totalSec%3600)/60);
+      const s = Math.round(totalSec%60);
+      return (h>0?h+':':'')+(h>0?String(m).padStart(2,'0'):m)+':'+String(s).padStart(2,'0');
+    }
+    
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById('tab-'+this.dataset.tab).classList.add('active');
+      });
+    });
+    
+    // Finish time
+    document.getElementById('ft-calc').addEventListener('click',function(){
+      const pMin = parseInt(document.getElementById('ft-pace-min').value)||0;
+      const pSec = parseInt(document.getElementById('ft-pace-sec').value)||0;
+      const unit = document.getElementById('ft-unit').value;
+      const distKey = document.getElementById('ft-dist').value;
+      const dist = DISTS[distKey];
+      const paceSecPerUnit = pMin*60+pSec;
+      if(!paceSecPerUnit){document.getElementById('ft-result').textContent='Enter a valid pace.';return;}
+      const distInUnits = unit==='mile' ? dist.miles : dist.miles*1.60934;
+      const totalSec = paceSecPerUnit*distInUnits;
+      const speedMph = 3600/paceSecPerUnit*(unit==='mile'?1:0.621371);
+      document.getElementById('ft-result').innerHTML='<div class="result-row"><span class="result-label">Finish Time ('+dist.label+')</span><span class="result-main">'+fmtTime(totalSec)+'</span></div><div class="result-row"><span class="result-label">Speed</span><span>'+speedMph.toFixed(1)+' mph / '+(speedMph*1.60934).toFixed(1)+' km/h</span></div>';
+    });
+    
+    // Find pace
+    document.getElementById('fp-calc').addEventListener('click',function(){
+      const h=parseInt(document.getElementById('fp-time-h').value)||0;
+      const m=parseInt(document.getElementById('fp-time-m').value)||0;
+      const s=parseInt(document.getElementById('fp-time-s').value)||0;
+      const totalSec=h*3600+m*60+s;
+      const distKey=document.getElementById('fp-dist').value;
+      const dist=DISTS[distKey];
+      if(!totalSec||!dist.miles){document.getElementById('fp-result').textContent='Enter a valid time.';return;}
+      const pacePerMileSec=totalSec/dist.miles;
+      const pacePerKmSec=totalSec/(dist.miles*1.60934);
+      document.getElementById('fp-result').innerHTML='<div class="result-row"><span class="result-label">Pace per Mile</span><span class="result-main">'+fmtTime(pacePerMileSec)+'</span></div><div class="result-row"><span class="result-label">Pace per Kilometer</span><span>'+fmtTime(pacePerKmSec)+'</span></div><div class="result-row"><span class="result-label">Speed</span><span>'+(3600/pacePerMileSec).toFixed(2)+' mph / '+(3600/pacePerKmSec).toFixed(2)+' km/h</span></div>';
+    });
+    
+    // Find distance
+    document.getElementById('fd-calc').addEventListener('click',function(){
+      const pMin=parseInt(document.getElementById('fd-pace-min').value)||0;
+      const pSec=parseInt(document.getElementById('fd-pace-sec').value)||0;
+      const dh=parseInt(document.getElementById('fd-time-h').value)||0;
+      const dm=parseInt(document.getElementById('fd-time-m').value)||0;
+      const unit=document.getElementById('fd-unit').value;
+      const paceSec=pMin*60+pSec;
+      const durSec=dh*3600+dm*60;
+      if(!paceSec||!durSec){document.getElementById('fd-result').textContent='Enter valid pace and duration.';return;}
+      const units=durSec/paceSec;
+      const miles=unit==='mile'?units:units/1.60934;
+      const km=miles*1.60934;
+      document.getElementById('fd-result').innerHTML='<div class="result-row"><span class="result-label">Distance</span><span class="result-main">'+miles.toFixed(2)+' mi</span></div><div class="result-row"><span class="result-label">Distance (km)</span><span>'+km.toFixed(2)+' km</span></div>';
+    });
+  })();
+  </script>
+</body>
+</html>
