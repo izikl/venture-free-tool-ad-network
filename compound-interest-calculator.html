@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compound Interest Calculator - Growth Over Time | UnitKit</title>
+  <meta name="description" content="Free compound interest calculator. Calculate investment growth with compound interest, see final balance, total interest earned, and year-by-year breakdown.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/compound-interest-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","description":"Calculate compound interest and investment growth over time.","url":"https://izikl.github.io/venture-free-tool-ad-network/compound-interest-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .result-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--color-border)}
+    .result-row:last-child{border-bottom:none;font-weight:700}
+    .result-label{color:var(--color-muted);font-size:.9rem}
+    .result-main{font-size:2.4rem;font-weight:800;color:var(--color-accent);line-height:1}
+    .seo-section h2,.seo-section h3{margin-top:0}
+    .faq-item+.faq-item{margin-top:16px}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:12px}
+    th{background:var(--color-accent);color:#fff;padding:8px;text-align:left}
+    td{padding:7px 8px;border-bottom:1px solid var(--color-border)}
+    tr:nth-child(even) td{background:#f0f4f9}
+    .growth-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--color-border);border-radius:6px}
+    select{width:100%;padding:10px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;background:#fff}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Compound Interest Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">See how your investment grows over time with compound interest, including optional regular contributions.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="converter-row">
+        <div class="field">
+          <label for="ci-principal">Initial Investment ($)</label>
+          <input id="ci-principal" type="number" min="0" step="100" placeholder="1000">
+        </div>
+        <div class="field">
+          <label for="ci-rate">Annual Interest Rate (%)</label>
+          <input id="ci-rate" type="number" min="0" step="0.01" placeholder="7">
+        </div>
+      </div>
+      <div class="converter-row">
+        <div class="field">
+          <label for="ci-years">Time Period (years)</label>
+          <input id="ci-years" type="number" min="1" step="1" placeholder="10">
+        </div>
+        <div class="field">
+          <label for="ci-compound">Compound Frequency</label>
+          <select id="ci-compound">
+            <option value="1">Annually</option>
+            <option value="2">Semi-annually</option>
+            <option value="4">Quarterly</option>
+            <option value="12" selected>Monthly</option>
+            <option value="365">Daily</option>
+          </select>
+        </div>
+      </div>
+      <div class="converter-row">
+        <div class="field">
+          <label for="ci-contrib">Monthly Contribution ($)</label>
+          <input id="ci-contrib" type="number" min="0" step="10" placeholder="0" value="0">
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn" type="button" id="ci-calc-btn">Calculate Growth</button>
+      </div>
+      <div class="result-box" id="ci-result" style="margin-top:18px">
+        Enter your investment details above, then select Calculate Growth.
+      </div>
+      <div id="ci-table-section" style="display:none;margin-top:20px">
+        <h3 style="font-size:1rem;margin-bottom:8px">Year-by-Year Breakdown</h3>
+        <div class="growth-wrap"><table><thead><tr><th>Year</th><th>Balance</th><th>Interest Earned</th><th>Total Contributions</th></tr></thead><tbody id="ci-body"></tbody></table></div>
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card seo-section" style="margin-top:24px">
+      <h2>What is compound interest?</h2>
+      <p>Compound interest is interest calculated on both your initial principal and the interest that has already been added to it. Unlike simple interest, which is calculated only on the original principal, compound interest grows exponentially because your earnings generate their own earnings. Albert Einstein reportedly called compound interest the eighth wonder of the world, and the math backs that up. A $10,000 investment at 7% compounding monthly becomes $20,097 after 10 years without adding a single additional dollar.</p>
+      <p>The more frequently interest compounds, the faster your money grows. Daily compounding yields slightly more than monthly, which yields more than annual, but the differences are smaller than most people expect. What truly matters is the annual rate, the time horizon, and whether you add regular contributions. Time is the most powerful variable in the compound interest formula.</p>
+      <h2>The compound interest formula</h2>
+      <p>The standard formula is A equals P times (1 plus r divided by n) raised to the power of n times t, where A is the final amount, P is the principal, r is the annual interest rate as a decimal, n is the number of compounding periods per year, and t is the number of years. For a $5,000 investment at 6% compounded quarterly for 5 years: A equals 5000 times (1 plus 0.06/4) to the power of (4 times 5), which gives $6,734.28.</p>
+      <p>When you add regular monthly contributions, the calculation becomes a sum of the principal formula and an annuity formula. This calculator handles both scenarios automatically, giving you accurate results whether you invest a lump sum, make regular contributions, or both.</p>
+      <h2>How to use compound interest for investing</h2>
+      <p>The key to maximizing compound growth is to start early, invest consistently, and avoid withdrawing earnings. Even small differences in starting age have large effects over decades. Someone who invests $200 per month from age 25 to 65 at 7% annual return accumulates about $525,000. Starting at 35 instead gives only about $243,000 - less than half, despite contributing only 10 fewer years.</p>
+      <p>Tax-advantaged accounts like 401(k)s, IRAs, and Roth accounts allow compound interest to work without annual tax drag. Reinvesting dividends is another way to harness compounding in stock portfolios. The underlying principle is always the same: leave earnings in place and let them generate their own earnings.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>What is a good compound interest rate?</h3>
+        <p>Historically, diversified stock market index funds have returned around 7-10% annually before inflation. High-yield savings accounts and CDs vary by market conditions but typically offer 1-5%. Bonds fall somewhere in between. The right rate depends on your risk tolerance and investment horizon.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How does compounding frequency affect returns?</h3>
+        <p>More frequent compounding yields slightly higher returns. At 7% over 10 years, annual compounding turns $10,000 into $19,672, while daily compounding gives $20,138 - a difference of $466. The rate and time period matter much more than compounding frequency.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can compound interest work against me?</h3>
+        <p>Yes. Debt with compound interest, such as credit cards compounding daily, can grow very quickly. The same math that builds wealth through investing can accelerate debt. This is why paying off high-interest debt before investing is usually the right move financially.</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:32px 20px;color:var(--color-muted);font-size:.85rem;border-top:1px solid var(--color-border);margin-top:40px">
+    <p>&copy; 2026 UnitKit. <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/about.html">About</a> &middot; <a href="/more-tools.html">All Tools</a></p>
+  </footer>
+  <script>
+  document.getElementById('ci-calc-btn').addEventListener('click', function() {
+    const P = parseFloat(document.getElementById('ci-principal').value) || 0;
+    const r = parseFloat(document.getElementById('ci-rate').value) / 100;
+    const t = parseInt(document.getElementById('ci-years').value);
+    const n = parseInt(document.getElementById('ci-compound').value);
+    const monthly = parseFloat(document.getElementById('ci-contrib').value) || 0;
+    const res = document.getElementById('ci-result');
+    if (isNaN(r) || r < 0 || !t || t < 1) { res.textContent = 'Please enter valid values.'; return; }
+    
+    let balance = P;
+    const rPerPeriod = r / n;
+    const periodsPerYear = n;
+    const tbody = document.getElementById('ci-body');
+    tbody.innerHTML = '';
+    let totalContrib = P;
+    
+    for (let y = 1; y <= t; y++) {
+      for (let p = 0; p < periodsPerYear; p++) {
+        balance = balance * (1 + rPerPeriod) + monthly * (12 / periodsPerYear);
+      }
+      totalContrib += monthly * 12;
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + y + '</td><td>$' + balance.toFixed(2) + '</td><td>$' + (balance - totalContrib).toFixed(2) + '</td><td>$' + totalContrib.toFixed(2) + '</td>';
+      tbody.appendChild(tr);
+    }
+    
+    const totalInterest = balance - totalContrib;
+    res.innerHTML = '<div class="result-row"><span class="result-label">Final Balance</span><span class="result-main">$' + balance.toFixed(2) + '</span></div>'
+      + '<div class="result-row"><span class="result-label">Total Interest Earned</span><span>$' + totalInterest.toFixed(2) + '</span></div>'
+      + '<div class="result-row"><span class="result-label">Total Contributions</span><span>$' + totalContrib.toFixed(2) + '</span></div>';
+    document.getElementById('ci-table-section').style.display = '';
+  });
+  </script>
+</body>
+</html>
