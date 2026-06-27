@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://izikl.github.io/venture-free-tool-ad-network/sitemap.xml
