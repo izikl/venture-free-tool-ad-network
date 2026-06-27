@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Percentage Off Calculator - Sale Price &amp; Discount Calculator | UnitKit</title>
+  <meta name="description" content="Free percentage off calculator. Find the sale price after a discount. Calculate how much you save and what percentage off any price is.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/percentage-off-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Off Calculator","description":"Free online discount calculator for sale price, savings, and percent off.","url":"https://izikl.github.io/venture-free-tool-ad-network/percentage-off-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .tab-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .tab-btn{border:1px solid var(--color-border);background:#fff;color:var(--color-text);padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}
+    .tab-btn.active{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
+    .mini-result{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);padding:14px}
+    .mini-result strong{display:block;font-size:1.15rem;margin-top:6px;color:var(--color-primary)}
+    .faq-item + .faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Percentage Off Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Calculate sale price, savings, and discount percentage for quick shopping decisions.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="discount-mode" type="button">Original price + % off</button>
+        <button class="tab-btn" data-tab="sale-mode" type="button">Original price + sale price</button>
+      </div>
+
+      <div id="discount-mode" class="tab-panel active">
+        <div class="converter-row">
+          <div class="field">
+            <label for="original-price-a">Original price</label>
+            <input id="original-price-a" type="number" min="0" step="0.01" placeholder="120.00">
+          </div>
+          <div class="field">
+            <label for="percent-off">Percent off</label>
+            <input id="percent-off" type="number" min="0" step="0.01" placeholder="25">
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" id="discount-btn" type="button">Calculate sale price</button></div>
+        <div class="result-grid">
+          <div class="mini-result">Sale price<strong id="sale-price-result">$0.00</strong></div>
+          <div class="mini-result">You save<strong id="savings-result">$0.00</strong></div>
+        </div>
+        <div class="result-box" id="discount-note" style="margin-top:18px">Enter the original price and discount percentage.</div>
+      </div>
+
+      <div id="sale-mode" class="tab-panel">
+        <div class="converter-row">
+          <div class="field">
+            <label for="original-price-b">Original price</label>
+            <input id="original-price-b" type="number" min="0" step="0.01" placeholder="120.00">
+          </div>
+          <div class="field">
+            <label for="sale-price-b">Sale price</label>
+            <input id="sale-price-b" type="number" min="0" step="0.01" placeholder="90.00">
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" id="sale-btn" type="button">Calculate % off</button></div>
+        <div class="result-grid">
+          <div class="mini-result">Discount percent<strong id="percent-result">0%</strong></div>
+          <div class="mini-result">You save<strong id="savings-result-b">$0.00</strong></div>
+        </div>
+        <div class="result-box" id="sale-note" style="margin-top:18px">Enter the original price and sale price.</div>
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card" style="margin-top:24px">
+      <h2>How to calculate percentage off</h2>
+      <p>A percentage off calculation tells you how much money you save and what the final sale price will be after a discount. To find the sale price, multiply the original price by the discount rate as a decimal to get the savings, then subtract the savings from the original price. For example, 25 percent off a $120 item means multiplying 120 by 0.25 to get $30 in savings, then subtracting $30 to get a sale price of $90.</p>
+      <p>If you already know the original price and the sale price, you can work backward to find the percentage off. Subtract the sale price from the original price to get the savings amount, then divide the savings by the original price and multiply by 100. This is useful when a store only shows the reduced price and you want to know how strong the discount really is.</p>
+      <h2>Formula explanation</h2>
+      <p>There are two common formulas. First, savings = original price × discount percentage. Second, sale price = original price - savings. To reverse the problem, use percent off = savings ÷ original price × 100. These formulas work for clothing, electronics, groceries, subscriptions, services, and almost any other shopping situation.</p>
+      <p>A calculator can be especially helpful when comparing several sale items at once. A 30 percent discount on one product may still cost more than a 15 percent discount on a cheaper item. Looking at both the final price and the savings amount gives a clearer picture than percentages alone.</p>
+      <h2>Shopping discount examples</h2>
+      <p>Imagine a jacket priced at $200 with a 40 percent discount. The savings are $80, so the sale price is $120. Now imagine a second item that drops from $95 to $76. The savings are $19, which means the discount is 20 percent. These comparisons show why it helps to calculate both directions, either from original price and percent off, or from original price and sale price.</p>
+      <p>During seasonal sales, stacking coupons, taxes, and shipping can also affect the true value of a deal. A percentage off calculator gives you a quick starting point so you can compare offers more confidently before buying.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>How do I find the sale price after a discount?</h3>
+        <p>Multiply the original price by the discount rate to find savings, then subtract that amount from the original price.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I find the discount percent from two prices?</h3>
+        <p>Subtract the sale price from the original price, divide by the original price, and multiply by 100.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does percentage off include tax?</h3>
+        <p>Usually no. Discounts are normally applied before tax, but store policies can vary.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use this for coupons and promo codes?</h3>
+        <p>Yes. Any price reduction that behaves like a percentage discount can be estimated with this tool.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-bar">
+    <div class="inner">
+      <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/more-tools.html">All Tools</a>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      function money(value) {
+        return '$' + value.toFixed(2);
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (item) { item.classList.remove('active'); });
+          panels.forEach(function (panel) { panel.classList.remove('active'); });
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+
+      document.getElementById('discount-btn').addEventListener('click', function () {
+        const original = parseFloat(document.getElementById('original-price-a').value);
+        const off = parseFloat(document.getElementById('percent-off').value);
+        const note = document.getElementById('discount-note');
+        if (!(original >= 0) || !(off >= 0)) {
+          note.textContent = 'Please enter a valid original price and percent off.';
+          return;
+        }
+        const savings = original * (off / 100);
+        const salePrice = original - savings;
+        document.getElementById('sale-price-result').textContent = money(salePrice);
+        document.getElementById('savings-result').textContent = money(savings);
+        note.textContent = 'Sale price calculated from the original price and discount percentage.';
+      });
+
+      document.getElementById('sale-btn').addEventListener('click', function () {
+        const original = parseFloat(document.getElementById('original-price-b').value);
+        const sale = parseFloat(document.getElementById('sale-price-b').value);
+        const note = document.getElementById('sale-note');
+        if (!(original > 0) || !(sale >= 0) || sale > original) {
+          note.textContent = 'Please enter valid prices. Sale price must be less than or equal to the original price.';
+          return;
+        }
+        const savings = original - sale;
+        const percent = (savings / original) * 100;
+        document.getElementById('percent-result').textContent = percent.toFixed(2) + '%';
+        document.getElementById('savings-result-b').textContent = money(savings);
+        note.textContent = 'Discount percentage calculated from original and sale price.';
+      });
+    }());
+  </script>
+</body>
+</html>
+
