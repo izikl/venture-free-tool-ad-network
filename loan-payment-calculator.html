@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loan Payment Calculator - Monthly Payment & Total Interest | UnitKit</title>
+  <meta name="description" content="Free loan payment calculator. Calculate your monthly loan payment, total interest paid, and amortization schedule for any loan amount, interest rate, and term.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/loan-payment-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Loan Payment Calculator","description":"Calculate monthly loan payments, total interest, and amortization for any loan.","url":"https://izikl.github.io/venture-free-tool-ad-network/loan-payment-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .result-main{font-size:2.4rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--color-border)}
+    .result-row:last-child{border-bottom:none;font-weight:700}
+    .result-label{color:var(--color-muted);font-size:.9rem}
+    .seo-section h2,.seo-section h3{margin-top:0}
+    .faq-item+.faq-item{margin-top:16px}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:12px}
+    th{background:var(--color-primary);color:#fff;padding:8px;text-align:left}
+    td{padding:7px 8px;border-bottom:1px solid var(--color-border)}
+    tr:nth-child(even) td{background:#f0f4f9}
+    .amort-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--color-border);border-radius:6px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Loan Payment Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Calculate your monthly payment, total cost, and full amortization schedule for any loan.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="converter-row" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="field">
+          <label for="loan-amount">Loan Amount ($)</label>
+          <input id="loan-amount" type="number" min="1" step="100" placeholder="10000">
+        </div>
+        <div class="field">
+          <label for="loan-rate">Annual Interest Rate (%)</label>
+          <input id="loan-rate" type="number" min="0" step="0.01" placeholder="6.5">
+        </div>
+        <div class="field">
+          <label for="loan-term">Loan Term (years)</label>
+          <input id="loan-term" type="number" min="1" step="1" placeholder="5">
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn" type="button" id="loan-calc-btn">Calculate Payment</button>
+      </div>
+      <div class="result-box" id="loan-result" style="margin-top:18px">
+        Enter loan details above, then select Calculate Payment.
+      </div>
+      <div id="amort-section" style="display:none;margin-top:20px">
+        <h3 style="font-size:1rem;margin-bottom:8px">Amortization Schedule</h3>
+        <div class="amort-wrap"><table><thead><tr><th>#</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody id="amort-body"></tbody></table></div>
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card seo-section" style="margin-top:24px">
+      <h2>How to calculate a loan payment</h2>
+      <p>A loan payment consists of two parts: principal and interest. The standard formula for a fixed-rate monthly payment is P times r divided by one minus (1 plus r) to the negative n power, where P is the loan principal, r is the monthly interest rate (annual rate divided by 12), and n is the total number of payments. For example, a $10,000 loan at 6% annual interest for 5 years has a monthly rate of 0.5% and 60 payments. The result is a fixed monthly payment of $193.33, totaling $11,599.68 over the life of the loan.</p>
+      <p>This calculator shows your fixed monthly payment, the total amount you repay over the life of the loan, and a full month-by-month amortization schedule. The amortization schedule is especially useful because it shows exactly how much of each payment goes toward reducing your principal versus paying interest. In the early months, most of your payment is interest; toward the end, most goes to principal.</p>
+      <h2>Understanding total cost of a loan</h2>
+      <p>The headline monthly payment is important, but the total cost of the loan tells you the full price you pay for borrowing. Total cost equals the monthly payment multiplied by the number of payments. Total interest paid equals the total cost minus the original principal. A longer loan term lowers your monthly payment but increases total interest paid, sometimes dramatically. A $20,000 car loan at 7% over 3 years costs about $2,230 in interest; stretched to 7 years, that same loan costs about $5,390 in interest.</p>
+      <p>When comparing loan offers, always look at the annual percentage rate (APR), not just the stated interest rate. APR includes fees and gives a more accurate picture of the true annual cost. Two loans with the same interest rate but different origination fees will have different APRs and different total costs.</p>
+      <h2>Tips for reducing loan interest</h2>
+      <p>Making extra principal payments reduces your balance faster and cuts total interest paid. Even one extra payment per year on a mortgage can save tens of thousands of dollars over the life of the loan. You can also refinance to a lower interest rate when market conditions improve, though refinancing has its own costs. Choosing a shorter loan term increases your monthly payment but significantly reduces total interest.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Does this calculator work for mortgages?</h3>
+        <p>Yes. Enter the home loan amount, your annual mortgage rate, and the term in years. For a 30-year mortgage, use 30. The calculator gives you the monthly principal-and-interest payment and the full amortization schedule.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is an amortization schedule?</h3>
+        <p>An amortization schedule shows each monthly payment broken into its principal and interest components, along with the remaining loan balance after each payment. It is useful for tracking how quickly you build equity or pay down debt.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I calculate a car loan payment?</h3>
+        <p>Yes. Enter the financed amount (purchase price minus down payment), the dealer or lender interest rate, and the term in years. Common car loan terms are 3, 4, 5, or 7 years.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How does a higher down payment help?</h3>
+        <p>A larger down payment reduces the loan principal, which lowers your monthly payment and reduces total interest paid. It can also help you qualify for better rates by lowering the loan-to-value ratio.</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:32px 20px;color:var(--color-muted);font-size:.85rem;border-top:1px solid var(--color-border);margin-top:40px">
+    <p>&copy; 2026 UnitKit. <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/about.html">About</a> &middot; <a href="/more-tools.html">All Tools</a></p>
+  </footer>
+  <script>
+  document.getElementById('loan-calc-btn').addEventListener('click', function() {
+    const P = parseFloat(document.getElementById('loan-amount').value);
+    const annualRate = parseFloat(document.getElementById('loan-rate').value);
+    const years = parseFloat(document.getElementById('loan-term').value);
+    const res = document.getElementById('loan-result');
+    if (!P || P <= 0 || isNaN(annualRate) || annualRate < 0 || !years || years <= 0) {
+      res.textContent = 'Please enter valid loan details.';
+      return;
+    }
+    const n = years * 12;
+    let monthly, totalPaid, totalInterest;
+    if (annualRate === 0) {
+      monthly = P / n;
+      totalPaid = P;
+      totalInterest = 0;
+    } else {
+      const r = annualRate / 100 / 12;
+      monthly = P * r / (1 - Math.pow(1 + r, -n));
+      totalPaid = monthly * n;
+      totalInterest = totalPaid - P;
+    }
+    res.innerHTML = '<div class="result-row"><span class="result-label">Monthly Payment</span><span class="result-main">$' + monthly.toFixed(2) + '</span></div>'
+      + '<div class="result-row"><span class="result-label">Total Interest Paid</span><span>$' + totalInterest.toFixed(2) + '</span></div>'
+      + '<div class="result-row"><span class="result-label">Total Cost of Loan</span><span>$' + totalPaid.toFixed(2) + '</span></div>'
+      + '<div class="result-row"><span class="result-label">Loan Amount</span><span>$' + P.toFixed(2) + '</span></div>';
+    
+    // Build amortization
+    const tbody = document.getElementById('amort-body');
+    tbody.innerHTML = '';
+    let balance = P;
+    const r = annualRate / 100 / 12;
+    for (let i = 1; i <= n; i++) {
+      const intPart = balance * r;
+      const prinPart = monthly - intPart;
+      balance = Math.max(0, balance - prinPart);
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + i + '</td><td>$' + monthly.toFixed(2) + '</td><td>$' + prinPart.toFixed(2) + '</td><td>$' + intPart.toFixed(2) + '</td><td>$' + balance.toFixed(2) + '</td>';
+      tbody.appendChild(tr);
+    }
+    document.getElementById('amort-section').style.display = '';
+  });
+  </script>
+</body>
+</html>
