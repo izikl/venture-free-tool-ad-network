@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Energy Converter — Joules, Calories, kWh, BTU | UnitKit</title>
+  <meta name="description" content="Free online energy converter. Convert between joules, calories, kilocalories, kWh, BTU, and more. Ideal for physics, nutrition, and engineering.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/energy-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Energy Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Convert between joules, calories, kilocalories, kilowatt-hours (kWh), BTU, and other energy units.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>⚡ Energy Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="cv-value">Value</label>
+          <input type="number" id="cv-value" placeholder="Enter value" value="1">
+        </div>
+        <div class="field">
+          <label for="cv-from">From</label>
+          <select id="cv-from">
+            <option value="J">Joule (J)</option>
+            <option value="kJ">Kilojoule (kJ)</option>
+            <option value="cal">Calorie (cal)</option>
+            <option value="kcal">Kilocalorie (kcal)</option>
+            <option value="Wh">Watt-hour (Wh)</option>
+            <option value="kWh">Kilowatt-hour (kWh)</option>
+            <option value="BTU">BTU (British Thermal Unit)</option>
+            <option value="eV">Electronvolt (eV)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cv-to">To</label>
+          <select id="cv-to">
+            <option value="J">Joule (J)</option>
+            <option value="kJ" selected>Kilojoule (kJ)</option>
+            <option value="cal">Calorie (cal)</option>
+            <option value="kcal">Kilocalorie (kcal)</option>
+            <option value="Wh">Watt-hour (Wh)</option>
+            <option value="kWh">Kilowatt-hour (kWh)</option>
+            <option value="BTU">BTU (British Thermal Unit)</option>
+            <option value="eV">Electronvolt (eV)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="doConvert()">Convert</button>
+      <div class="result-box" id="cv-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How many joules in a calorie?</summary>
+        <div class="faq-body">1 calorie (small calorie) = 4.184 joules. 1 kilocalorie (food calorie) = 4,184 joules.</div>
+      </details>
+      <details>
+        <summary>How many joules in a kWh?</summary>
+        <div class="faq-body">1 kWh = 3,600,000 joules (3.6 MJ). This is the amount of energy used by a 1,000-watt device in 1 hour.</div>
+      </details>
+      <details>
+        <summary>What is a BTU?</summary>
+        <div class="faq-body">A BTU (British Thermal Unit) = 1,055.06 joules. It is the energy needed to raise 1 lb of water by 1°F. Commonly used for HVAC systems.</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    const TO_BASE = { J: 1, kJ: 1000, cal: 4.184, kcal: 4184, Wh: 3600, kWh: 3600000, BTU: 1055.06, eV: 1.602176634e-19 };
+    const LABELS = { J: 'joule', kJ: 'kilojoule', cal: 'calorie', kcal: 'kilocalorie', Wh: 'watt-hour', kWh: 'kWh', BTU: 'BTU', eV: 'electronvolt' };
+    function doConvert() {
+      const v = parseFloat(document.getElementById('cv-value').value);
+      const from = document.getElementById('cv-from').value;
+      const to = document.getElementById('cv-to').value;
+      if (isNaN(v)) { document.getElementById('cv-result').textContent = 'Please enter a valid number.'; return; }
+      const base = v * TO_BASE[from];
+      const result = base / TO_BASE[to];
+      document.getElementById('cv-result').textContent =
+        v + ' ' + LABELS[from] + ' = ' + (+result.toPrecision(8)) + ' ' + LABELS[to];
+    }
+    document.getElementById('cv-value').addEventListener('input', doConvert);
+    document.getElementById('cv-from').addEventListener('change', doConvert);
+    document.getElementById('cv-to').addEventListener('change', doConvert);
+    doConvert();
+  </script>
+</body>
+</html>
