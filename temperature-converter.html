@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Temperature Converter — Celsius, Fahrenheit, Kelvin | UnitKit</title>
+  <meta name="description" content="Free online temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly. Perfect for cooking, weather, and science.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/temperature-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Temperature Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Instantly convert between Celsius (°C), Fahrenheit (°F), and Kelvin (K).</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>🌡️ Temperature Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="tmp-value">Temperature</label>
+          <input type="number" id="tmp-value" placeholder="Enter temperature" value="100">
+        </div>
+        <div class="field">
+          <label for="tmp-from">From</label>
+          <select id="tmp-from">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+            <option value="K">Kelvin (K)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tmp-to">To</label>
+          <select id="tmp-to">
+            <option value="C">Celsius (°C)</option>
+            <option value="F" selected>Fahrenheit (°F)</option>
+            <option value="K">Kelvin (K)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="convertTemp()">Convert</button>
+      <div class="result-box" id="tmp-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+    <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius);padding:20px;margin-bottom:20px">
+      <h2 style="font-size:1rem;margin-bottom:12px;color:var(--color-primary)">Quick Reference</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+        <thead><tr style="background:var(--color-bg)">
+          <th style="padding:8px;text-align:left;border-bottom:1px solid var(--color-border)">Celsius</th>
+          <th style="padding:8px;text-align:left;border-bottom:1px solid var(--color-border)">Fahrenheit</th>
+          <th style="padding:8px;text-align:left;border-bottom:1px solid var(--color-border)">Description</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:8px;border-bottom:1px solid var(--color-border)">0 °C</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">32 °F</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">Water freezing point</td></tr>
+          <tr><td style="padding:8px;border-bottom:1px solid var(--color-border)">20 °C</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">68 °F</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">Room temperature</td></tr>
+          <tr><td style="padding:8px;border-bottom:1px solid var(--color-border)">37 °C</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">98.6 °F</td><td style="padding:8px;border-bottom:1px solid var(--color-border)">Human body temperature</td></tr>
+          <tr><td style="padding:8px">100 °C</td><td style="padding:8px">212 °F</td><td style="padding:8px">Water boiling point</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How do I convert Celsius to Fahrenheit?</summary>
+        <div class="faq-body">Formula: °F = (°C × 9/5) + 32. Example: 25°C = (25 × 1.8) + 32 = 77°F.</div>
+      </details>
+      <details>
+        <summary>How do I convert Fahrenheit to Celsius?</summary>
+        <div class="faq-body">Formula: °C = (°F − 32) × 5/9. Example: 98.6°F = (98.6 − 32) × 5/9 = 37°C.</div>
+      </details>
+      <details>
+        <summary>What is absolute zero in Celsius and Fahrenheit?</summary>
+        <div class="faq-body">Absolute zero is 0 K = −273.15°C = −459.67°F. It is the lowest theoretically possible temperature.</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    function toKelvin(v, from) {
+      if (from === 'C') return v + 273.15;
+      if (from === 'F') return (v - 32) * 5/9 + 273.15;
+      return v; // K
+    }
+    function fromKelvin(k, to) {
+      if (to === 'C') return k - 273.15;
+      if (to === 'F') return (k - 273.15) * 9/5 + 32;
+      return k;
+    }
+    const TMP_LABEL = { C: '°C', F: '°F', K: 'K' };
+    const TMP_NAME = { C: 'Celsius', F: 'Fahrenheit', K: 'Kelvin' };
+    function convertTemp() {
+      const v = parseFloat(document.getElementById('tmp-value').value);
+      const from = document.getElementById('tmp-from').value;
+      const to = document.getElementById('tmp-to').value;
+      if (isNaN(v)) { document.getElementById('tmp-result').textContent = 'Please enter a valid number.'; return; }
+      const result = fromKelvin(toKelvin(v, from), to);
+      document.getElementById('tmp-result').textContent =
+        v + ' ' + TMP_LABEL[from] + ' (' + TMP_NAME[from] + ') = ' + (+result.toFixed(4)) + ' ' + TMP_LABEL[to] + ' (' + TMP_NAME[to] + ')';
+    }
+    document.getElementById('tmp-value').addEventListener('input', convertTemp);
+    document.getElementById('tmp-from').addEventListener('change', convertTemp);
+    document.getElementById('tmp-to').addEventListener('change', convertTemp);
+    convertTemp();
+  </script>
+</body>
+</html>
