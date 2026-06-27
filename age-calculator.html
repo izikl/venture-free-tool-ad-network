@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Age Calculator - Calculate Exact Age From Birth Date | UnitKit</title>
+  <meta name="description" content="Free age calculator. Find your exact age in years, months, and days from your date of birth. Also calculates days until your next birthday.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/age-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Age Calculator","description":"Free online age calculator for exact age, total days lived, and next birthday.","url":"https://izikl.github.io/venture-free-tool-ad-network/age-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+    .mini-result{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);padding:14px}
+    .mini-result strong{display:block;font-size:1.15rem;margin-top:6px;color:var(--color-primary)}
+    .faq-item + .faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Age Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Find exact age from a birth date, plus total days lived, next birthday countdown, and the weekday you were born.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="converter-row">
+        <div class="field">
+          <label for="birth-date">Birth date</label>
+          <input id="birth-date" type="date">
+        </div>
+      </div>
+      <div style="margin-top:16px"><button class="btn" type="button" id="age-calc-btn">Calculate age</button></div>
+      <div class="result-grid">
+        <div class="mini-result">Exact age<strong id="age-ymd">-</strong></div>
+        <div class="mini-result">Total days lived<strong id="days-lived">-</strong></div>
+        <div class="mini-result">Days until next birthday<strong id="next-birthday">-</strong></div>
+        <div class="mini-result">Born on<strong id="weekday-born">-</strong></div>
+      </div>
+      <div class="result-box" id="age-note" style="margin-top:18px">Choose a birth date and calculate your exact age.</div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card" style="margin-top:24px">
+      <h2>How age is calculated</h2>
+      <p>Age can be measured in a few different ways. The most common version is calendar age, which counts how many full birthdays have passed. Exact age goes further by measuring the remaining months and days after your last birthday. This gives a more precise result, especially when you need age details for forms, planning, legal references, records, or personal milestones.</p>
+      <p>To calculate exact age, start with the birth date and compare it with today’s date. Subtract the year, month, and day values carefully. If today’s day is earlier than the birth day, you borrow days from the previous month. If today’s month is earlier than the birth month, you borrow a year. This calculator does that date math automatically and presents the answer in years, months, and days, which is much easier than working it out by hand.</p>
+      <h2>Fun age facts</h2>
+      <p>Looking at age in several formats can reveal interesting details. Total days lived shows how much time has passed in one long count, while the day of the week you were born can be a fun fact for birthdays, gifts, or social posts. Days until your next birthday are useful for travel planning, event scheduling, and countdowns. Some people also like comparing their age in months or weeks for milestone celebrations.</p>
+      <p>Leap years add another layer of interest. If you were born on February 29, your legal and social birthday may be observed differently in non-leap years, depending on location and context. Date calculations must handle these edge cases carefully to remain accurate. This tool uses built-in date logic to account for month lengths and leap years.</p>
+      <h2>Calendar age vs exact age</h2>
+      <p>Calendar age is simple and familiar, but exact age is better when precision matters. For example, someone who is 30 years old by birthday may also be 30 years, 4 months, and 12 days old in exact terms. Both are correct, but they answer slightly different questions. If you need a quick everyday answer, use years. If you need precise timing, use years, months, and days together.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Does this age calculator account for leap years?</h3>
+        <p>Yes. The date logic uses actual calendar dates, including month length differences and leap years.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I calculate age for a future date?</h3>
+        <p>This page is designed for birth dates in the past. Future dates are not treated as valid ages.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why does exact age include months and days?</h3>
+        <p>Years alone do not show how far you are from your last or next birthday. Months and days add precision.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How is next birthday calculated?</h3>
+        <p>The calculator compares this year’s birthday with today, then uses next year if the birthday has already passed.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-bar">
+    <div class="inner">
+      <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/more-tools.html">All Tools</a>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const birthInput = document.getElementById('birth-date');
+      const note = document.getElementById('age-note');
+      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+      function daysInMonth(year, monthIndex) {
+        return new Date(year, monthIndex + 1, 0).getDate();
+      }
+
+      function startOfDay(date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function diffYmd(birth, today) {
+        let years = today.getFullYear() - birth.getFullYear();
+        let months = today.getMonth() - birth.getMonth();
+        let days = today.getDate() - birth.getDate();
+
+        if (days < 0) {
+          months -= 1;
+          const prevMonth = today.getMonth() === 0 ? 11 : today.getMonth() - 1;
+          const prevMonthYear = today.getMonth() === 0 ? today.getFullYear() - 1 : today.getFullYear();
+          days += daysInMonth(prevMonthYear, prevMonth);
+        }
+        if (months < 0) {
+          years -= 1;
+          months += 12;
+        }
+        return { years: years, months: months, days: days };
+      }
+
+      function nextBirthdayInfo(birth, today) {
+        const month = birth.getMonth();
+        const date = birth.getDate();
+        let candidate = new Date(today.getFullYear(), month, date);
+        if (candidate < today) {
+          candidate = new Date(today.getFullYear() + 1, month, date);
+        }
+        const msPerDay = 24 * 60 * 60 * 1000;
+        return Math.round((startOfDay(candidate) - startOfDay(today)) / msPerDay);
+      }
+
+      function calculateAge() {
+        if (!birthInput.value) {
+          note.textContent = 'Please select a birth date.';
+          return;
+        }
+        const birth = new Date(birthInput.value + 'T00:00:00');
+        const today = startOfDay(new Date());
+        if (birth > today) {
+          note.textContent = 'Birth date must be today or earlier.';
+          return;
+        }
+        const exact = diffYmd(birth, today);
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const daysLived = Math.floor((today - startOfDay(birth)) / msPerDay);
+        const daysUntilBirthday = nextBirthdayInfo(birth, today);
+        document.getElementById('age-ymd').textContent = exact.years + ' years, ' + exact.months + ' months, ' + exact.days + ' days';
+        document.getElementById('days-lived').textContent = daysLived.toLocaleString();
+        document.getElementById('next-birthday').textContent = daysUntilBirthday.toLocaleString();
+        document.getElementById('weekday-born').textContent = weekdays[birth.getDay()];
+        note.textContent = 'Exact age calculated from your date of birth to today.';
+      }
+
+      document.getElementById('age-calc-btn').addEventListener('click', calculateAge);
+    }());
+  </script>
+</body>
+</html>
+
