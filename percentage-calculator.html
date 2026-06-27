@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Percentage Calculator - Calculate Percentages Online | UnitKit</title>
+  <meta name="description" content="Free percentage calculator. Calculate what percent of a number is, find percentage increase/decrease, and reverse percentage calculations instantly.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/percentage-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator","description":"Free online calculator for common percentage calculations.","url":"https://izikl.github.io/venture-free-tool-ad-network/percentage-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .tab-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .tab-btn{border:1px solid var(--color-border);background:#fff;color:var(--color-text);padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}
+    .tab-btn.active{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    .formula{background:var(--color-bg);padding:12px 14px;border-radius:var(--radius);color:var(--color-muted);margin-bottom:16px}
+    .faq-item + .faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Percentage Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Solve the most common percentage questions, including percent of a number, reverse percent, and percentage change.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="tab-bar" role="tablist" aria-label="Percentage calculator modes">
+        <button class="tab-btn active" data-tab="percent-of" type="button">What is X% of Y?</button>
+        <button class="tab-btn" data-tab="what-percent" type="button">X is what % of Y?</button>
+        <button class="tab-btn" data-tab="percent-change" type="button">Percentage change</button>
+      </div>
+
+      <div id="percent-of" class="tab-panel active">
+        <div class="formula">Formula: (X ÷ 100) × Y</div>
+        <div class="converter-row">
+          <div class="field">
+            <label for="percent-x">Percent (X)</label>
+            <input id="percent-x" type="number" step="any" placeholder="15">
+          </div>
+          <div class="field">
+            <label for="percent-y">Number (Y)</label>
+            <input id="percent-y" type="number" step="any" placeholder="200">
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" id="percent-of-btn" type="button">Calculate</button></div>
+        <div class="result-box" id="percent-of-result" style="margin-top:18px">Enter values to calculate what percentage of a number is.</div>
+      </div>
+
+      <div id="what-percent" class="tab-panel">
+        <div class="formula">Formula: (X ÷ Y) × 100</div>
+        <div class="converter-row">
+          <div class="field">
+            <label for="value-x">Value (X)</label>
+            <input id="value-x" type="number" step="any" placeholder="30">
+          </div>
+          <div class="field">
+            <label for="value-y">Base number (Y)</label>
+            <input id="value-y" type="number" step="any" placeholder="120">
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" id="what-percent-btn" type="button">Calculate</button></div>
+        <div class="result-box" id="what-percent-result" style="margin-top:18px">Enter values to find the percentage relationship.</div>
+      </div>
+
+      <div id="percent-change" class="tab-panel">
+        <div class="formula">Formula: ((New - Original) ÷ Original) × 100</div>
+        <div class="converter-row">
+          <div class="field">
+            <label for="original-value">Original value</label>
+            <input id="original-value" type="number" step="any" placeholder="80">
+          </div>
+          <div class="field">
+            <label for="new-value">New value</label>
+            <input id="new-value" type="number" step="any" placeholder="100">
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" id="percent-change-btn" type="button">Calculate</button></div>
+        <div class="result-box" id="percent-change-result" style="margin-top:18px">Enter original and new values to measure change.</div>
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card" style="margin-top:24px">
+      <h2>How to calculate percentage</h2>
+      <p>Percent means per hundred, so percentage math is really a way to compare one value against a base of 100. The first common question is, what is X percent of Y? To solve that, convert the percent into a decimal by dividing by 100, then multiply by the number. For example, 15 percent of 200 equals 0.15 times 200, which is 30. This calculator does that instantly, but the formula is easy to remember once you see it a few times.</p>
+      <p>The second common question is, X is what percent of Y? Here, you divide the part by the whole and multiply by 100. If 30 is what percent of 120, the answer is 30 divided by 120 times 100, which equals 25 percent. This is useful for test scores, discounts, completion rates, and comparing values in reports.</p>
+      <h2>Common percentage calculations</h2>
+      <p>Percentages appear almost everywhere in everyday life. You may use them to calculate tax, tips, discounts, commissions, exam results, budget growth, loan rates, and business metrics. In personal finance, percentages help compare savings goals, returns, and changes in spending. In school, they help convert raw scores into a format that is easier to compare across assignments. In shopping, they show how much you save during a sale. In business, percentages summarize changes clearly, which is why marketers, analysts, and managers rely on them so often.</p>
+      <p>Using a percentage calculator reduces mistakes, especially when a formula has several steps. It is also helpful when decimals create awkward manual math. Instead of doing repeated conversions or trying to remember the right formula for each situation, you can pick the mode that matches your question and get a clear answer fast.</p>
+      <h2>Percentage increase formula</h2>
+      <p>Percentage change compares a new value to an original value. Subtract the original from the new value, divide by the original, and multiply by 100. A positive result means an increase, while a negative result means a decrease. If something rises from 80 to 100, the change is 25 percent. If it drops from 100 to 80, the change is negative 20 percent. Because the base matters, percentage increases and decreases are not always symmetrical.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>How do I convert a percent to a decimal?</h3>
+        <p>Divide the percent by 100. For example, 7 percent becomes 0.07 and 125 percent becomes 1.25.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I find the original amount before a percentage increase?</h3>
+        <p>Divide the new amount by 1 plus the increase rate as a decimal. For a 20 percent increase, divide by 1.20.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can percentages be over 100?</h3>
+        <p>Yes. A value can be more than 100 percent of another value if it is larger than the base amount.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why does percentage decrease look different from increase?</h3>
+        <p>Because the original value is the base in each calculation. Changing the base changes the percentage result.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-bar">
+    <div class="inner">
+      <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/more-tools.html">All Tools</a>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (item) { item.classList.remove('active'); });
+          panels.forEach(function (panel) { panel.classList.remove('active'); });
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+
+      document.getElementById('percent-of-btn').addEventListener('click', function () {
+        const x = parseFloat(document.getElementById('percent-x').value);
+        const y = parseFloat(document.getElementById('percent-y').value);
+        const box = document.getElementById('percent-of-result');
+        if (!Number.isFinite(x) || !Number.isFinite(y)) {
+          box.textContent = 'Please enter valid values for X and Y.';
+          return;
+        }
+        const result = (x / 100) * y;
+        box.innerHTML = '<strong>' + x + '% of ' + y + '</strong> = <strong>' + result.toLocaleString(undefined, { maximumFractionDigits: 6 }) + '</strong>';
+      });
+
+      document.getElementById('what-percent-btn').addEventListener('click', function () {
+        const x = parseFloat(document.getElementById('value-x').value);
+        const y = parseFloat(document.getElementById('value-y').value);
+        const box = document.getElementById('what-percent-result');
+        if (!Number.isFinite(x) || !Number.isFinite(y) || y === 0) {
+          box.textContent = 'Please enter valid values and make sure Y is not zero.';
+          return;
+        }
+        const result = (x / y) * 100;
+        box.innerHTML = '<strong>' + x + '</strong> is <strong>' + result.toLocaleString(undefined, { maximumFractionDigits: 6 }) + '%</strong> of ' + y + '.';
+      });
+
+      document.getElementById('percent-change-btn').addEventListener('click', function () {
+        const original = parseFloat(document.getElementById('original-value').value);
+        const newer = parseFloat(document.getElementById('new-value').value);
+        const box = document.getElementById('percent-change-result');
+        if (!Number.isFinite(original) || !Number.isFinite(newer) || original === 0) {
+          box.textContent = 'Please enter valid values and make sure the original value is not zero.';
+          return;
+        }
+        const change = ((newer - original) / original) * 100;
+        let label = 'increase';
+        if (change < 0) label = 'decrease';
+        if (change === 0) label = 'no change';
+        box.innerHTML = '<strong>' + change.toLocaleString(undefined, { maximumFractionDigits: 6 }) + '%</strong> ' + label + ' from ' + original + ' to ' + newer + '.';
+      });
+    }());
+  </script>
+</body>
+</html>
+
