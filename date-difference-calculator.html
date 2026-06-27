@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Date Difference Calculator - Days Between Dates | UnitKit</title>
+  <meta name="description" content="Free date difference calculator. Find the number of days, weeks, months, and years between any two dates. Calculate how many days until or since any event.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/date-difference-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Date Difference Calculator","description":"Calculate the number of days, weeks, months, and years between two dates.","url":"https://izikl.github.io/venture-free-tool-ad-network/date-difference-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .result-main{font-size:2.8rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-sub{font-size:1rem;color:var(--color-muted);margin-top:8px}
+    .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:16px}
+    .stat-box{background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;padding:14px;text-align:center}
+    .stat-val{font-size:1.6rem;font-weight:700;color:var(--color-primary)}
+    .stat-lbl{font-size:.8rem;color:var(--color-muted);margin-top:4px}
+    .seo-section h2,.seo-section h3{margin-top:0}
+    .faq-item+.faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Date Difference Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Find the exact number of days, weeks, months, and years between any two dates.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="converter-row">
+        <div class="field">
+          <label for="date-start">Start Date</label>
+          <input id="date-start" type="date">
+        </div>
+        <div class="field">
+          <label for="date-end">End Date</label>
+          <input id="date-end" type="date">
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" type="button" id="date-calc-btn">Calculate Difference</button>
+        <button class="btn" type="button" id="date-today-btn" style="background:var(--color-accent)">Set Today as Start</button>
+      </div>
+      <div class="result-box" id="date-result" style="margin-top:18px">
+        Select two dates above to calculate the difference.
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card seo-section" style="margin-top:24px">
+      <h2>How to calculate days between dates</h2>
+      <p>Calculating the number of days between two dates seems simple, but it can be tricky when leap years are involved or when you need to convert to weeks, months, and years. This calculator uses the proleptic Gregorian calendar to count the exact number of whole days between the start and end dates you enter. The result is always precise, accounting for all leap years in the range.</p>
+      <p>To find the number of days between two dates manually, subtract the earlier date from the later date. Most programming languages and spreadsheet tools support this directly. In Excel or Google Sheets, you can subtract one date cell from another to get the number of days. For the number of weeks, divide by 7. For approximate months, divide by 30.44 (the average number of days in a month).</p>
+      <h2>Common uses for a date difference calculator</h2>
+      <p>People use date difference calculators for a wide variety of everyday tasks. Project managers track how many days remain until a deadline. Parents count down to a child's birthday or school start date. HR professionals calculate employee tenure or benefit eligibility periods. Event planners measure how many weeks until a wedding or conference. Finance teams calculate the number of days between invoicing and payment to compute late fees or interest.</p>
+      <p>Legal and contractual contexts often require precise date calculations. Contract terms frequently specify notice periods in days, cooling-off periods in business days, or warranty periods in months. A date calculator helps you verify these periods accurately without counting on a physical calendar.</p>
+      <h2>Business days vs. calendar days</h2>
+      <p>This calculator counts calendar days, which includes weekends and holidays. Calendar days are used for most general date calculations, including age, loan terms, subscription periods, and general countdowns. Business days exclude weekends and, depending on jurisdiction, public holidays. For business day calculations, you would need to subtract the number of Saturday, Sunday, and holiday occurrences from the calendar day count.</p>
+      <p>Many contract terms, court filings, and banking deadlines specifically use business days. Always check whether a timeframe requires business days or calendar days before relying on any date calculation for a legal or financial purpose.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Does the calculator count the start date or the end date?</h3>
+        <p>By convention, date difference calculations count from the start of the start date to the start of the end date. So from January 1 to January 2 is 1 day, not 2. If you want to include both the start and end days, add 1 to the result.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many days until a specific date?</h3>
+        <p>Set today as the start date using the button above, then enter your target date as the end date. The result shows the exact number of days remaining until that date.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How does the calculator handle leap years?</h3>
+        <p>The calculator accounts for all leap years in the range. A year is a leap year if it is divisible by 4, except century years which must be divisible by 400. For example, 2000 was a leap year but 1900 was not.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I calculate how many months between two dates?</h3>
+        <p>Yes. The result shows the approximate number of complete months between the two dates. Because months have different lengths, this is an approximation based on whole calendar months elapsed.</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:32px 20px;color:var(--color-muted);font-size:.85rem;border-top:1px solid var(--color-border);margin-top:40px">
+    <p>&copy; 2026 UnitKit. <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/about.html">About</a> &middot; <a href="/more-tools.html">All Tools</a></p>
+  </footer>
+  <script>
+  (function() {
+    const today = new Date().toISOString().slice(0,10);
+    document.getElementById('date-start').value = today;
+    document.getElementById('date-today-btn').addEventListener('click', function() {
+      document.getElementById('date-start').value = new Date().toISOString().slice(0,10);
+    });
+    document.getElementById('date-calc-btn').addEventListener('click', function() {
+      const s = document.getElementById('date-start').value;
+      const e = document.getElementById('date-end').value;
+      const res = document.getElementById('date-result');
+      if (!s || !e) { res.textContent = 'Please select both dates.'; return; }
+      const start = new Date(s);
+      const end = new Date(e);
+      const diffMs = end - start;
+      const days = Math.round(diffMs / 86400000);
+      const absDays = Math.abs(days);
+      const weeks = Math.floor(absDays / 7);
+      const remDays = absDays % 7;
+      
+      // Months and years
+      let y1 = start.getFullYear(), m1 = start.getMonth();
+      let y2 = end.getFullYear(), m2 = end.getMonth();
+      let totalMonths = (y2 - y1) * 12 + (m2 - m1);
+      if (days < 0) totalMonths = Math.abs(totalMonths);
+      const years = Math.floor(totalMonths / 12);
+      const months = totalMonths % 12;
+      
+      const dir = days < 0 ? 'before' : (days === 0 ? '' : 'after');
+      res.innerHTML = '<div style="margin-bottom:8px"><span class="result-main">' + absDays + '</span> <span style="font-size:1.2rem;font-weight:600">days</span>'
+        + (days === 0 ? ' <span class="result-sub">Same date</span>' : ' <span class="result-sub">' + (days < 0 ? 'End is before start' : 'from start to end') + '</span>') + '</div>'
+        + '<div class="result-grid">'
+        + '<div class="stat-box"><div class="stat-val">' + years + '</div><div class="stat-lbl">Years</div></div>'
+        + '<div class="stat-box"><div class="stat-val">' + months + '</div><div class="stat-lbl">Months</div></div>'
+        + '<div class="stat-box"><div class="stat-val">' + weeks + '</div><div class="stat-lbl">Weeks</div></div>'
+        + '<div class="stat-box"><div class="stat-val">' + remDays + '</div><div class="stat-lbl">Extra Days</div></div>'
+        + '</div>';
+    });
+  })();
+  </script>
+</body>
+</html>
