@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Length Converter — Convert Meters, Feet, Inches, cm | UnitKit</title>
+  <meta name="description" content="Free online length converter. Instantly convert between meters, feet, inches, centimeters, kilometers, miles, yards, and more. Fast and accurate.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/length-converter.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Length Converter</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Convert between meters, feet, inches, centimeters, kilometers, miles, yards, and more.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <div class="converter-card">
+      <h2>📏 Length / Distance Converter</h2>
+      <div class="converter-row">
+        <div class="field">
+          <label for="len-value">Value</label>
+          <input type="number" id="len-value" placeholder="Enter value" value="1">
+        </div>
+        <div class="field">
+          <label for="len-from">From</label>
+          <select id="len-from">
+            <option value="m">Meter (m)</option>
+            <option value="km">Kilometer (km)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="mm">Millimeter (mm)</option>
+            <option value="ft">Foot (ft)</option>
+            <option value="in">Inch (in)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="mi">Mile (mi)</option>
+            <option value="nm">Nautical Mile (nm)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="len-to">To</label>
+          <select id="len-to">
+            <option value="m">Meter (m)</option>
+            <option value="km">Kilometer (km)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="mm">Millimeter (mm)</option>
+            <option value="ft" selected>Foot (ft)</option>
+            <option value="in">Inch (in)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="mi">Mile (mi)</option>
+            <option value="nm">Nautical Mile (nm)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-convert" onclick="convertLength()">Convert</button>
+      <div class="result-box" id="len-result" style="margin-top:14px">Result will appear here</div>
+    </div>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How many feet are in a meter?</summary>
+        <div class="faq-body">1 meter = 3.28084 feet. So to convert meters to feet, multiply by 3.28084.</div>
+      </details>
+      <details>
+        <summary>How many centimeters are in an inch?</summary>
+        <div class="faq-body">1 inch = 2.54 centimeters. To convert inches to centimeters, multiply by 2.54.</div>
+      </details>
+      <details>
+        <summary>How do I convert miles to kilometers?</summary>
+        <div class="faq-body">1 mile = 1.60934 kilometers. Multiply the number of miles by 1.60934 to get kilometers.</div>
+      </details>
+      <details>
+        <summary>What is a nautical mile?</summary>
+        <div class="faq-body">A nautical mile is 1,852 meters (about 1.151 regular miles). It is used in maritime and aviation navigation.</div>
+      </details>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p>© 2026 UnitKit. Free unit converters and calculators. No registration required.</p>
+    <p style="margin-top:6px;font-size:.75rem">Conversions are for informational purposes only.</p>
+  </footer>
+  <script>
+    const LEN_TO_METERS = {
+      m: 1, km: 1000, cm: 0.01, mm: 0.001,
+      ft: 0.3048, in: 0.0254, yd: 0.9144,
+      mi: 1609.344, nm: 1852
+    };
+    const LEN_LABELS = {
+      m:'meter', km:'kilometer', cm:'centimeter', mm:'millimeter',
+      ft:'foot', in:'inch', yd:'yard', mi:'mile', nm:'nautical mile'
+    };
+    function convertLength() {
+      const v = parseFloat(document.getElementById('len-value').value);
+      const from = document.getElementById('len-from').value;
+      const to = document.getElementById('len-to').value;
+      if (isNaN(v)) { document.getElementById('len-result').textContent = 'Please enter a valid number.'; return; }
+      const meters = v * LEN_TO_METERS[from];
+      const result = meters / LEN_TO_METERS[to];
+      const label = result === 1 ? LEN_LABELS[to] : LEN_LABELS[to] + 's';
+      document.getElementById('len-result').textContent =
+        v + ' ' + LEN_LABELS[from] + (v===1?'':'s') + ' = ' + result.toPrecision(8).replace(/\.?0+$/, '') + ' ' + label;
+    }
+    document.getElementById('len-value').addEventListener('input', convertLength);
+    document.getElementById('len-from').addEventListener('change', convertLength);
+    document.getElementById('len-to').addEventListener('change', convertLength);
+    convertLength();
+  </script>
+</body>
+</html>
