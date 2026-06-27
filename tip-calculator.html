@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tip Calculator - Calculate Tip and Split Bill | UnitKit</title>
+  <meta name="description" content="Free tip calculator. Calculate the right tip amount for any bill. Split the total between any number of people. Works for restaurants, taxis, and more.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/tip-calculator.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Tip Calculator","description":"Free tip calculator for bills, gratuity, and bill splitting.","url":"https://izikl.github.io/venture-free-tool-ad-network/tip-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .preset-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+    .preset-btn{border:1px solid var(--color-border);background:#fff;padding:10px 14px;border-radius:999px;font-weight:700;color:var(--color-primary);cursor:pointer}
+    .preset-btn.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+    .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+    .mini-result{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);padding:14px}
+    .mini-result strong{display:block;font-size:1.2rem;margin-top:6px;color:var(--color-primary)}
+    .faq-item + .faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Tip Calculator</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Calculate gratuity, total bill, and per-person cost in seconds with preset tip rates or a custom percentage.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="converter-row">
+        <div class="field">
+          <label for="bill-amount">Bill amount</label>
+          <input id="bill-amount" type="number" min="0" step="0.01" placeholder="84.50">
+        </div>
+        <div class="field">
+          <label for="custom-tip">Custom tip %</label>
+          <input id="custom-tip" type="number" min="0" step="0.1" placeholder="18">
+        </div>
+        <div class="field">
+          <label for="split-people">Number of people</label>
+          <input id="split-people" type="number" min="1" step="1" value="1">
+        </div>
+      </div>
+      <div class="preset-row" aria-label="Preset tip percentages">
+        <button class="preset-btn" type="button" data-tip="10">10%</button>
+        <button class="preset-btn" type="button" data-tip="15">15%</button>
+        <button class="preset-btn active" type="button" data-tip="18">18%</button>
+        <button class="preset-btn" type="button" data-tip="20">20%</button>
+        <button class="preset-btn" type="button" data-tip="25">25%</button>
+      </div>
+      <button class="btn" type="button" id="tip-calc-btn">Calculate tip</button>
+      <div class="result-grid">
+        <div class="mini-result">Tip amount<strong id="tip-amount">$0.00</strong></div>
+        <div class="mini-result">Total amount<strong id="total-amount">$0.00</strong></div>
+        <div class="mini-result">Amount per person<strong id="per-person-total">$0.00</strong></div>
+        <div class="mini-result">Tip per person<strong id="per-person-tip">$0.00</strong></div>
+      </div>
+      <div class="result-box" id="tip-note" style="margin-top:18px">Enter a bill amount, choose a tip rate, and calculate the split.</div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card" style="margin-top:24px">
+      <h2>Standard tip percentages</h2>
+      <p>Tipping customs vary by country, city, and service type, but many people use a simple range to decide on gratuity. In restaurants, 15 percent is often considered a basic tip for standard service, 18 percent is common for good service, and 20 percent or more is often used for excellent service. For bars, taxis, delivery, salons, and ride services, people usually choose a flat amount or a percentage that reflects the quality of service and local expectations.</p>
+      <p>Preset buttons make this easier because you can compare several common tip rates without manual math. If you want to reward outstanding service, choosing 20 percent or 25 percent can show appreciation clearly. If you are working with a tight budget, a calculator can help you see the exact difference between each option before you pay.</p>
+      <h2>Tipping guide by service type</h2>
+      <p>Restaurants often receive the highest percentage tips because table service can be time intensive. Taxi or rideshare tips are often around 10 to 20 percent, depending on distance, help with bags, and overall experience. Food delivery tips can depend on weather, distance, order size, and how difficult the delivery was. Hair stylists, barbers, hotel staff, and spa workers also commonly receive tips. When in doubt, check local customs, since tipping expectations differ widely around the world.</p>
+      <h2>How to calculate a tip manually</h2>
+      <p>To calculate a tip by hand, multiply the bill amount by the tip percentage as a decimal. For example, for an $80 bill and an 18 percent tip, multiply 80 by 0.18 to get $14.40. Add that to the bill to get the total of $94.40. If you are splitting the bill, divide the total by the number of people. To find the tip per person, divide the tip amount by the same number of people. This tool performs all of those steps automatically, which is especially helpful when the bill includes tax, multiple diners, or a custom percentage.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Should I tip before or after tax?</h3>
+        <p>Practices vary. Many people tip based on the pre-tax subtotal, while others tip on the full total for simplicity.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How much should I tip for great service?</h3>
+        <p>Many people choose 20 percent or more when service is excellent, especially in places where tipping is standard.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use this for group dinners?</h3>
+        <p>Yes. Enter the number of people to split the total and the tip evenly across the group.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if a service charge is already included?</h3>
+        <p>If gratuity is already added, you may not need an extra tip unless you want to leave more.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-bar">
+    <div class="inner">
+      <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/more-tools.html">All Tools</a>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const customTip = document.getElementById('custom-tip');
+      const billAmount = document.getElementById('bill-amount');
+      const splitPeople = document.getElementById('split-people');
+      const note = document.getElementById('tip-note');
+      const presetButtons = document.querySelectorAll('.preset-btn');
+
+      function money(value) {
+        return '$' + value.toFixed(2);
+      }
+
+      function activatePreset(value) {
+        presetButtons.forEach(function (button) {
+          button.classList.toggle('active', button.dataset.tip === String(value));
+        });
+        customTip.value = value;
+      }
+
+      function calculateTip() {
+        const bill = parseFloat(billAmount.value);
+        const tipPercent = parseFloat(customTip.value);
+        const people = parseInt(splitPeople.value, 10);
+        if (!(bill >= 0) || !(tipPercent >= 0) || !(people >= 1)) {
+          note.textContent = 'Please enter a valid bill amount, tip percentage, and split count.';
+          return;
+        }
+        const tip = bill * (tipPercent / 100);
+        const total = bill + tip;
+        const totalPerPerson = total / people;
+        const tipPerPerson = tip / people;
+        document.getElementById('tip-amount').textContent = money(tip);
+        document.getElementById('total-amount').textContent = money(total);
+        document.getElementById('per-person-total').textContent = money(totalPerPerson);
+        document.getElementById('per-person-tip').textContent = money(tipPerPerson);
+        note.textContent = 'Tip calculated using ' + tipPercent + '%. Split across ' + people + ' person' + (people === 1 ? '' : 's') + '.';
+      }
+
+      presetButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activatePreset(button.dataset.tip);
+          calculateTip();
+        });
+      });
+
+      customTip.addEventListener('input', function () {
+        presetButtons.forEach(function (button) { button.classList.remove('active'); });
+      });
+
+      document.getElementById('tip-calc-btn').addEventListener('click', calculateTip);
+      activatePreset(18);
+    }());
+  </script>
+</body>
+</html>
+
