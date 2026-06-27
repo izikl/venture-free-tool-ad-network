@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Word Count Tool - Count Words, Characters & Sentences | UnitKit</title>
+  <meta name="description" content="Free online word count tool. Count words, characters, sentences, and paragraphs instantly. Also shows estimated reading time. Paste or type any text.">
+  <link rel="canonical" href="https://izikl.github.io/venture-free-tool-ad-network/word-count.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Word Count Tool","description":"Count words, characters, sentences, and paragraphs in any text. Shows reading time.","url":"https://izikl.github.io/venture-free-tool-ad-network/word-count.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    textarea{width:100%;min-height:180px;padding:12px;border:1px solid var(--color-border);border-radius:6px;font-size:1rem;font-family:inherit;resize:vertical;line-height:1.5}
+    textarea:focus{outline:2px solid var(--color-primary);border-color:transparent}
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px}
+    .stat-box{background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;padding:14px;text-align:center}
+    .stat-val{font-size:2rem;font-weight:800;color:var(--color-primary)}
+    .stat-lbl{font-size:.8rem;color:var(--color-muted);margin-top:4px}
+    .seo-section h2,.seo-section h3{margin-top:0}
+    .faq-item+.faq-item{margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Unit<span>Kit</span></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/length-converter.html">Length</a>
+        <a href="/weight-converter.html">Weight</a>
+        <a href="/temperature-converter.html">Temperature</a>
+        <a href="/more-tools.html">More Tools</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Word Count Tool</h1>
+    <p style="color:var(--color-muted);margin-bottom:20px">Paste or type any text to instantly count words, characters, sentences, paragraphs, and reading time.</p>
+  <!-- ADSENSE_PLACEHOLDER -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card">
+      <div class="field">
+        <label for="wc-text">Your Text</label>
+        <textarea id="wc-text" placeholder="Paste or type your text here..."></textarea>
+      </div>
+      <div class="stat-grid" id="wc-stats">
+        <div class="stat-box"><div class="stat-val" id="wc-words">0</div><div class="stat-lbl">Words</div></div>
+        <div class="stat-box"><div class="stat-val" id="wc-chars">0</div><div class="stat-lbl">Characters</div></div>
+        <div class="stat-box"><div class="stat-val" id="wc-chars-no">0</div><div class="stat-lbl">Chars (no spaces)</div></div>
+        <div class="stat-box"><div class="stat-val" id="wc-sentences">0</div><div class="stat-lbl">Sentences</div></div>
+        <div class="stat-box"><div class="stat-val" id="wc-paragraphs">0</div><div class="stat-lbl">Paragraphs</div></div>
+        <div class="stat-box"><div class="stat-val" id="wc-read">0 min</div><div class="stat-lbl">Reading Time</div></div>
+      </div>
+      <div style="margin-top:12px">
+        <button class="btn" type="button" id="wc-clear" style="background:var(--color-muted)">Clear Text</button>
+      </div>
+    </section>
+  <!-- ADSENSE_PLACEHOLDER_BOTTOM -->
+  <div class="ad-unit">Advertisement</div>
+    <section class="converter-card seo-section" style="margin-top:24px">
+      <h2>How to use the word count tool</h2>
+      <p>Simply paste or type your text into the box above. The tool updates your word count, character count, sentence count, paragraph count, and estimated reading time automatically as you type. There is no button to press and no delay. You can clear the text at any time using the Clear Text button and start with fresh content.</p>
+      <p>This tool is useful for anyone who needs to meet a specific word or character count, such as students writing essays, bloggers drafting articles, social media managers keeping posts within platform limits, or professionals writing reports and summaries. It works entirely in your browser, so your text is never sent to any server.</p>
+      <h2>Understanding the counts</h2>
+      <p>Words are counted by splitting on whitespace and ignoring empty segments. Characters include every letter, number, punctuation mark, and space. Characters without spaces removes all space characters from the count. Sentences are detected by counting terminal punctuation marks: periods, exclamation marks, and question marks. Paragraphs are counted by splitting on blank lines.</p>
+      <p>Reading time is estimated at 200 words per minute, which is roughly the average adult silent reading speed for non-technical content. Technical content or complex writing is typically read more slowly, around 150 words per minute. Fast readers may process up to 300 words per minute. The estimate here is a useful baseline for judging whether content fits a typical reader's patience for a given context.</p>
+      <h2>Character limits by platform</h2>
+      <p>Different platforms impose different character limits. Twitter and X allow 280 characters per post (verified users may have higher limits). Instagram captions support up to 2,200 characters, though the first 125 show before a "more" link. LinkedIn posts support up to 3,000 characters. SMS messages are typically 160 characters for a single segment, with multi-part messages automatically splitting longer texts. Meta ad headlines allow 30 characters and description text allows 90 characters. Knowing these limits helps you craft content that fits the platform without being cut off.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Is my text stored or sent anywhere?</h3>
+        <p>No. This tool works entirely in your browser using JavaScript. Your text is never transmitted to any server. It disappears when you close or refresh the page.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How long is a 1,000-word essay?</h3>
+        <p>A 1,000-word essay typically fills about 2 to 4 pages, depending on font size, line spacing, and margins. Double-spaced at 12pt font with standard margins, 1,000 words is roughly 4 pages. Single-spaced, it is about 2 pages.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many words is a 5-minute speech?</h3>
+        <p>A 5-minute speech is roughly 650 to 750 words at an average speaking pace of 130 to 150 words per minute. If you speak faster, the count is higher; slower speakers may need only 600 words for a 5-minute delivery.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why does my word count differ from Microsoft Word?</h3>
+        <p>Different tools handle hyphenated words, numbers, and punctuation slightly differently. Microsoft Word may count "well-being" as one word or two depending on settings. This tool counts words by whitespace separation, so hyphenated words count as one word. Differences of a few words are normal across tools.</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:32px 20px;color:var(--color-muted);font-size:.85rem;border-top:1px solid var(--color-border);margin-top:40px">
+    <p>&copy; 2026 UnitKit. <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/about.html">About</a> &middot; <a href="/more-tools.html">All Tools</a></p>
+  </footer>
+  <script>
+  (function() {
+    const txt = document.getElementById('wc-text');
+    function update() {
+      const t = txt.value;
+      const words = t.trim() === '' ? 0 : t.trim().split(/\s+/).length;
+      const chars = t.length;
+      const charsNo = t.replace(/\s/g,'').length;
+      const sentences = t === '' ? 0 : (t.match(/[.!?]+/g)||[]).length;
+      const paragraphs = t.trim() === '' ? 0 : t.split(/\n\s*\n/).filter(p=>p.trim()).length || (t.trim() ? 1 : 0);
+      const readMin = Math.ceil(words / 200);
+      document.getElementById('wc-words').textContent = words;
+      document.getElementById('wc-chars').textContent = chars;
+      document.getElementById('wc-chars-no').textContent = charsNo;
+      document.getElementById('wc-sentences').textContent = sentences;
+      document.getElementById('wc-paragraphs').textContent = paragraphs;
+      document.getElementById('wc-read').textContent = readMin < 1 ? '< 1 min' : readMin + ' min';
+    }
+    txt.addEventListener('input', update);
+    document.getElementById('wc-clear').addEventListener('click', function() { txt.value=''; update(); });
+  })();
+  </script>
+</body>
+</html>
